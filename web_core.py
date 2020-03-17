@@ -5,13 +5,10 @@ import datetime
 
 app = Flask(__name__)
 
-
 # curl -X POST -H "Content-Type: application/json; charset=UTF-8" http://10.66.8.21:5000/api_get_time
 @app.route("/api_get_time", methods=["POST"])
 def api_get_time():
     return "Current date and time: " + str(datetime.datetime.now()) + "\n"
-
-#print
 
 # curl -X POST -H "Content-Type: application/json; charset=UTF-8" --data '{"a":"5","b":"10","operation":"+"}' http://10.66.8.21:5000/api_get_calculate
 @app.route("/api_get_calculate", methods=["POST"])
@@ -23,7 +20,6 @@ def api_get_calculate():
         return self_calculator(a, b, operation) + "\n"
     else:
         return "No input JSON data"
-
 
 def self_calculator(a, b, operation):
     if operation == '+':
@@ -38,7 +34,6 @@ def self_calculator(a, b, operation):
         else:
             return str(int(a) / int(b));
 
-
 # curl -X POST -H "Content-Type: application/json; charset=UTF-8" http://10.66.8.21:5000/api_get_help
 @app.route("/api_get_help", methods=["POST"])
 def api_get_help():
@@ -50,5 +45,8 @@ def api_get_help():
     use_help_get_help = "api_get_help - use POST request without params to get HELP\n"
     return curl_command + "\nAPI:\n" + use_help_get_time + use_help_get_calculate + use_help_get_help
 
+def check_input_data(a,b,operation):
+    return 1
 
 app.run(host='0.0.0.0', port=5000)
+
