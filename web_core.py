@@ -2,6 +2,7 @@
 from flask import Flask
 from flask import request
 import datetime
+import re
 
 app = Flask(__name__)
 
@@ -17,7 +18,11 @@ def api_get_calculate():
         a = request.json.get("a")
         b = request.json.get("b")
         operation = request.json.get("operation")
-        return self_calculator(a, b, operation) + "\n"
+        check_input = check_input_data(a, b, operation)
+        if check_input == "check done":
+            return self_calculator(a, b, operation) + "\n"
+        else:
+            return  check_input
     else:
         return "No input JSON data"
 
@@ -46,7 +51,18 @@ def api_get_help():
     return curl_command + "\nAPI:\n" + use_help_get_time + use_help_get_calculate + use_help_get_help
 
 def check_input_data(a,b,operation):
-    return 1
+    pattern = r"\A\d+\Z"
+    if re.match(pattern,a):
+        if re.match(pattern,b):
+            pattern_operation = r"\A[\+\-\*\\/]{1,1}\Z"
+            if re.match(pattern_operation,operation):
+               return "check done"
+            else:
+                return "invalid input for param 'operation'"
+        else:
+            return "invalid input for param 'b'"
+    else:
+        return "invalid input for param 'a'"
 
 app.run(host='0.0.0.0', port=5000)
 
