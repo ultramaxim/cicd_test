@@ -12,11 +12,24 @@ pipeline {
     timestamps()
     }
   stages {
-  stage("clone project and run in docker") {
+  stage("clean folder for project") {
     steps {
-      sh 'ls /'
+      sh 'rm -rf cicd_test'
+  }
+  }
+  stage("clone git project to local folder") {
+  steps {
+  sh 'git clone https://github.com/ultramaxim/cicd_test'
+  }
+  }
+  stage("clone git project to local folder") {
+  steps {
+    sh 'git clone https://github.com/ultramaxim/cicd_test'
+    sh 'cd cdcd_test
+  }
   }
 
-  }
-  }
+
+
+}
 }
