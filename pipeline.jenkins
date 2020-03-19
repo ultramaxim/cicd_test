@@ -21,7 +21,7 @@ pipeline {
             steps {
                 sh 'git clone https://github.com/ultramaxim/cicd_test /var/lib/jenkins/workspace/pipeline_calculate/cicd_test'
                 sh 'cd /var/lib/jenkins/workspace/pipeline_calculate/cicd_test'
-                sh '~'
+                sh 'ls'
             }
         }
 
