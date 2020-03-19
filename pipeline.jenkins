@@ -12,9 +12,25 @@ pipeline {
     }
 
     stages {
-        stage("clean folder for project") {
+        stage("clean folder for project and create new one") {
             steps {
-                sh 'ssh ubuntu@ec2-35-163-141-59.us-west-2.compute.amazonaws.com'
+                sh 'rm -rf cicd_test'
+            }
+        }
+       stage("clone git project to local folder") {
+            steps {
+                sh 'git clone https://github.com/ultramaxim/cicd_test'
+            }
+        }
+        stage("clean container and image") {
+            steps {
+                sh 'python cicd_test/clean_docker_garbage.py'
+            }
+        }
+        stage("build docker image and run docker container") {
+            steps {
+                sh 'docker build -t api_calculator cicd_test/ '
+                sh 'docker run -d -p 5000:5000 api_calculator'
             }
         }
     }
