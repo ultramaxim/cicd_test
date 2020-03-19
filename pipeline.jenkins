@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage("clean folder for project") {
             steps {
-                sh 'rm -rf /var/lib/jenkins/workspace/pipeline_calculate
+                sh 'rm -rf /var/lib/jenkins/workspace/pipeline_calculate'
             }
         }
         stage("clone git project to local folder") {
