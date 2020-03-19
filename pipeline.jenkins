@@ -21,17 +21,9 @@ pipeline {
             steps {
                 sh 'git clone https://github.com/ultramaxim/cicd_test'
                 sh 'cd cicd_test'
+                sh '~'
             }
         }
-        stage("build docker image") {
-            steps {
-                sh 'docker build -t calculator .'
-            }
-        }
-        stage("run docker image") {
-            steps {
-                sh 'docker run -p 5000:5000 calculator'
-            }
-        }
+
     }
 }
