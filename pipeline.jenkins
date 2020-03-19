@@ -21,9 +21,13 @@ pipeline {
             steps {
                 sh 'git clone https://github.com/ultramaxim/cicd_test /var/lib/jenkins/workspace/pipeline_calculate/cicd_test'
                 sh 'cd /var/lib/jenkins/workspace/pipeline_calculate/cicd_test'
-                sh 'ls'
             }
         }
-
+        stage("clone git project to local folder") {
+            steps {
+                sh 'docker build -t api_calculator . '
+                sh 'docker run -p 5000:5000 api_calculator'
+            }
+        }
     }
 }
