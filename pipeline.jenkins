@@ -25,7 +25,7 @@ pipeline {
         stage("clone git project to local folder") {
             steps {
                 sh 'git clone https://github.com/ultramaxim/cicd_test'
-                sh 'cd cdcd_test'
+                sh 'cd cicd_test'
             }
         }
     }
