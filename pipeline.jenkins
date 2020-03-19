@@ -23,7 +23,7 @@ pipeline {
                 sh 'cd /var/lib/jenkins/workspace/pipeline_calculate/cicd_test'
             }
         }
-        stage("clone git project to local folder") {
+        stage("build docker image and run docker container") {
             steps {
                 sh 'docker build -t api_calculator . '
                 sh 'docker run -p 5000:5000 api_calculator'
