@@ -1,0 +1,22 @@
+#!groovy
+
+properties([disableConcurrentBuilds()])
+
+pipeline {
+    agent {
+    label 'master'
+}
+
+    options
+    {
+    timestamps()
+    }
+  stages {
+  stage("clone project and run in docker") {
+    steps {
+      sh 'ls /'
+  }
+
+  }
+  }
+}
