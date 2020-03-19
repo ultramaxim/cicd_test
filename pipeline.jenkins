@@ -5,30 +5,28 @@ properties([disableConcurrentBuilds()])
 pipeline {
     agent {
     label 'master'
-}
+    }
 
-    options
-    {
+    options {
     timestamps()
     }
-  stages {
-  stage("clean folder for project") {
-    steps {
-      sh 'rm -rf cicd_test'
-  }
-  }
-  stage("clone git project to local folder") {
-  steps {
-  sh 'git clone https://github.com/ultramaxim/cicd_test'
-  }
-  }
-  stage("clone git project to local folder") {
-  steps {
-    sh 'git clone https://github.com/ultramaxim/cicd_test'
-    sh 'cd cdcd_test'
-  }
-  }
 
-
-
+    stages {
+        stage("clean folder for project") {
+            steps {
+                sh 'rm -rf cicd_test'
+            }
+        }
+        stage("clone git project to local folder") {
+            steps {
+                sh 'git clone https://github.com/ultramaxim/cicd_test'
+            }
+        }
+        stage("clone git project to local folder") {
+            steps {
+                sh 'git clone https://github.com/ultramaxim/cicd_test'
+                sh 'cd cdcd_test'
+            }
+        }
+    }
 }
