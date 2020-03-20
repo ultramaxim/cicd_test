@@ -1,0 +1,7 @@
+<application>
+  <component name="GithubAccounts">
+    <account id="a6e62c5a-7bb1-4045-be34-23cc1055d5f9" name="ultramaxim">
+      <server host="github.com" />
+    </account>
+  </component>
+</application>
