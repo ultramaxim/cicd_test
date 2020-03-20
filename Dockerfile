@@ -6,6 +6,7 @@ WORKDIR /usr/src/api_calculator
 COPY . /usr/scr/api_calculator
 
 RUN pip install flask
+RUN pip install pytz
 
 EXPOSE 5000
 
