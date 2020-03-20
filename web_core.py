@@ -11,7 +11,7 @@ app = Flask(__name__)
 # curl -X POST -H "Content-Type: application/json; charset=UTF-8" http://10.66.8.21:5000/api_get_time
 @app.route("/api_get_time", methods=["POST"])
 def api_get_time():
-    return "Current date and time UTC: "+str(datetime.datetime.now(pytz.utc))+"\n"
+    return "Current date and time UTC: " + str(datetime.datetime.now(pytz.utc)) + "\n"
 
 
 # curl -X POST -H "Content-Type: application/json; charset=UTF-8" --data '{"a":"5","b":"10","operation":"+"}' http://10.66.8.21:5000/api_get_calculate
@@ -72,4 +72,4 @@ def check_input_data(a, b, operation):
 
 
 app.run(host='0.0.0.0', port=5000)
-#
+###
