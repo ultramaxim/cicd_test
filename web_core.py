@@ -70,5 +70,9 @@ def check_input_data(a, b, operation):
     else:
         return "invalid input for param 'a'"
 
+@app.route("/", methods=["POST"])
+def web_core():
+    return api_get_help()
+
 app.run(host='0.0.0.0', port=5000)
 
