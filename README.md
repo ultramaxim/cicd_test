@@ -17,3 +17,5 @@ api_get_calculate - use follow JSON format {\"a\": your_data ,\"b\": your_data,\
  dbname |yoyo|
  
  my local username admin:pass123
+ 
+ dbname "23dsf4"  
