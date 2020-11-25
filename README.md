@@ -11,7 +11,9 @@ api_get_calculate - use follow JSON format {\"a\": your_data ,\"b\": your_data,\
  api_get_help - use POST request without params to get HELP
  
  а еще для теста я размещу здесь пароль -   123qweASD+
- Password is 123qweASD+-*
+ password is 123qweASD+-*
+ user max
  
+ dbname yoyo
  
  my local username admin:pass123
