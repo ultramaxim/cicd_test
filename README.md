@@ -9,3 +9,9 @@ api_get_calculate - use follow JSON format {\"a\": your_data ,\"b\": your_data,\
 [example: \'{\"a\":\"5\",\"b\":\"10\",\"operation\":\"+\"}\']
  
  api_get_help - use POST request without params to get HELP
+ 
+ а еще для теста я размещу здесь пароль -   123qweASD+
+ Password is 123qweASD+-*
+ 
+ 
+ my local username admin:pass123
